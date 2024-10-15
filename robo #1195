@@ -1,0 +1,17 @@
+from collections import Counter
+def substrings(st):
+    s = []
+    n = len(st)
+    
+    for i in range(n):
+        for j in range(i + 1, n + 1):
+            s.append(st[i:j])
+    return s
+
+st = input()
+lst = Counter(substrings(st))
+lst = sorted(Counter({key: value for key, value in lst.items() if value >= 2}).keys(), key=len, reverse=True)
+try:
+    print(len(lst[0]))
+except:
+    print(0)
